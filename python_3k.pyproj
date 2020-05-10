@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{be0c38e4-8b54-490e-b8c7-f918bc1546d2}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>Task_1\Task_1.py</StartupFile>
+    <StartupFile>Task_2\Task_2.py</StartupFile>
     <SearchPath />
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -22,12 +22,19 @@
     <InterpreterReference Include="Global|PythonCore|3.7" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Task_2\" />
     <Folder Include="Task_1\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Task_1\Task_1.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Task_2\Task_2.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Task_2\restaurants.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
