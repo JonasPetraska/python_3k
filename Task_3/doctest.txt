@@ -1,0 +1,10 @@
+Command to run:
+python -m doctest -v doctest.txt
+
+>>> from NthFibonacciSeriesNumber import NthNumberOfFibonacciSeries
+>>> NthNumberOfFibonacciSeries(10)
+34
+>>> NthNumberOfFibonacciSeries(30)
+514229
+>>> NthNumberOfFibonacciSeries(0)
+-1
