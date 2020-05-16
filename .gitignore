@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/.vs/python_3k/v16/Browse.VC.db
+/.vs/python_3k/v16/Browse.VC.opendb

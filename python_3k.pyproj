@@ -22,9 +22,11 @@
     <InterpreterReference Include="Global|PythonCore|3.7" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Task_4\" />
     <Folder Include="Task_3\" />
     <Folder Include="Task_2\" />
     <Folder Include="Task_1\" />
+    <Folder Include="Task_4\Function\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Task_1\Task_1.py">
@@ -39,10 +41,16 @@
     <Compile Include="Task_3\NthFibonacciSeriesNumber_Test.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Task_4\Function\setup.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Task_2\restaurants.json" />
     <Content Include="Task_3\doctest.txt" />
+    <Content Include="Task_4\Function\IsPrime.c">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>
