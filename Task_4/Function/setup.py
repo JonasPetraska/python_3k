@@ -6,7 +6,6 @@ module = Extension("primeModule", sources = ["IsPrime.c"])
 setup(name="primeModule",
 		ext_modules = [module])
 	
-	
 # ~$ python setup.py install --user
 # ~$ python
 # >>> import primeModule

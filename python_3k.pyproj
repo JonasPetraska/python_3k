@@ -29,6 +29,7 @@
     <Folder Include="Task_2\" />
     <Folder Include="Task_1\" />
     <Folder Include="Task_4\Function\" />
+    <Folder Include="Task_4\DataType\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Task_1\Task_1.py">
@@ -43,6 +44,9 @@
     <Compile Include="Task_3\NthFibonacciSeriesNumber_Test.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Task_4\DataType\setup.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Task_4\Function\setup.py">
       <SubType>Code</SubType>
     </Compile>
@@ -50,6 +54,9 @@
   <ItemGroup>
     <Content Include="Task_2\restaurants.json" />
     <Content Include="Task_3\doctest.txt" />
+    <Content Include="Task_4\DataType\Point.c">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Task_4\Function\IsPrime.c">
       <SubType>Code</SubType>
     </Content>
