@@ -1,4 +1,5 @@
 #include <Python.h>
+#include <stdbool.h>
 
 bool isPrime(int n)
 {
@@ -14,38 +15,37 @@ bool isPrime(int n)
     return true;
 }
 
-static PyObject* error;
+static PyObject* primeError;
 
-static PyObject* py_isPrime(PyObject* self, PyObject* args)
+static PyObject* isPrimePy(PyObject* self, PyObject* args)
 {
-    int input;
+	int n;
+	if (!PyArg_ParseTuple(args, "i", &n)) {
+		PyErr_SetString(primeError, "Please input a number.");
+		return NULL;
+	}
 
-    if (!PyArg_ParseTuple(args, "i", input)) {
-        PyErr_SetString(error, "Invalid input: param has to be an integer");
-        return NULL;
-    }
-
-    return Py_BuildValue("O", isPrime(input));
+	return Py_BuildValue("i", isPrime(n));
 }
 
 static PyMethodDef primeModuleMethods[] = {
-    {"IsPrime", (PyCFunction)py_isPrime, METH_VARARGS, "Checks if a given number is a prime"},
-    {NULL, NULL, 0, NULL}
+	{"isPrime", (PyCFunction)isPrimePy, METH_VARARGS, "Tells whether the given numbers is a prime or not."},
+	{NULL, NULL, 0, NULL}
 };
 
 static struct PyModuleDef primeModule = {
-    PyModuleDef_HEAD_INIT,
-    "PrimeModule",
-    "Prime Module",
-    -1,
-    primeModuleMethods
+	PyModuleDef_HEAD_INIT,
+	"primeModule",
+	"Prime module",
+	-1,
+	primeModuleMethods
 };
 
-PyMODINIT_FUNC PyInit_PrimeModule(void)
+PyMODINIT_FUNC PyInit_primeModule(void)
 {
-    PyObject* mod = PyModule_Create(&primeModule);
-    anagramError = PyErr_NewException("PrimeModule.error", NULL, NULL);
-    Py_INCREF(error);
-    PyModule_AddObject(mod, "error", error);
-    return mod;
+	PyObject* mod = PyModule_Create(&primeModule);
+	primeError = PyErr_NewException("primeModule.error", NULL, NULL);
+	Py_INCREF(primeError);
+	PyModule_AddObject(mod, "error", primeError);
+	return mod;
 }
