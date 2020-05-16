@@ -1,5 +1,8 @@
 #include <Python.h>
 
+// ~$ gcc -I "C:\Users\Developer plusplusC\AppData\Local\Programs\Python\Python37\Include" -L "C:\Users\Developer plusplusC\AppData\Local\Programs\Python\Python37\Libs" IsPrime_Embed.c -l python37 -o isPrime.out
+// ~$ ./isPrime.out isPrime isPrime 3
+
 int main(int argc, char* argv[])
 {
     PyObject* pName, * pModule, * pFunc;
