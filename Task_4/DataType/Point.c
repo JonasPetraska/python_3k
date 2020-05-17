@@ -127,7 +127,7 @@ static struct PyModuleDef pointModule = {
   NULL, NULL, NULL, NULL, NULL
 };
 
-PyMODINIT_FUNC PyInit_pointModule(void) { //import triangleModule
+PyMODINIT_FUNC PyInit_pointModule(void) {
     PyObject* m;
     if (PyType_Ready(&PointType) < 0)
         return NULL;
