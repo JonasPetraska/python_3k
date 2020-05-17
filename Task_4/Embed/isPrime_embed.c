@@ -1,7 +1,8 @@
 #include <Python.h>
 
-// ~$ gcc -I "C:\Users\Developer plusplusC\AppData\Local\Programs\Python\Python37\Include" -L "C:\Users\Developer plusplusC\AppData\Local\Programs\Python\Python37\Libs" IsPrime_Embed.c -l python37 -o isPrime.out
-// ~$ ./isPrime.out isPrime isPrime 3
+// ~$ gcc -I "C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\include" -L "C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64\libs" isPrime_embed.c -l python37 -o isPrime
+// Location of python depends per user
+// ~$ ./isPrime.exe IsPrime isPrime 5
 
 int main(int argc, char* argv[])
 {
