@@ -34,6 +34,7 @@
     <Folder Include="Task_5\webapp\" />
     <Folder Include="Task_5\webapp\users\" />
     <Folder Include="Task_5\webapp\users\migrations\" />
+    <Folder Include="Task_5\webapp\users\templates\" />
     <Folder Include="Task_5\webapp\webapp\" />
   </ItemGroup>
   <ItemGroup>
