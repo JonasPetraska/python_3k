@@ -32,6 +32,8 @@
     <Folder Include="Task_4\DataType\" />
     <Folder Include="Task_4\Embed\" />
     <Folder Include="Task_5\webapp\" />
+    <Folder Include="Task_5\webapp\users\" />
+    <Folder Include="Task_5\webapp\users\migrations\" />
     <Folder Include="Task_5\webapp\webapp\" />
   </ItemGroup>
   <ItemGroup>
@@ -57,6 +59,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Task_5\webapp\manage.py" />
+    <Compile Include="Task_5\webapp\users\admin.py" />
+    <Compile Include="Task_5\webapp\users\apps.py" />
+    <Compile Include="Task_5\webapp\users\migrations\__init__.py" />
+    <Compile Include="Task_5\webapp\users\models.py" />
+    <Compile Include="Task_5\webapp\users\tests.py" />
+    <Compile Include="Task_5\webapp\users\views.py" />
+    <Compile Include="Task_5\webapp\users\__init__.py" />
     <Compile Include="Task_5\webapp\webapp\asgi.py" />
     <Compile Include="Task_5\webapp\webapp\settings.py" />
     <Compile Include="Task_5\webapp\webapp\urls.py" />
