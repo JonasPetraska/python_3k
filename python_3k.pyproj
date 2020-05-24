@@ -23,6 +23,7 @@
     <InterpreterReference Include="Global|PythonCore|3.7" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Task_5\" />
     <Folder Include="Task_4\" />
     <Folder Include="Task_3\" />
     <Folder Include="Task_2\" />
@@ -30,6 +31,8 @@
     <Folder Include="Task_4\Function\" />
     <Folder Include="Task_4\DataType\" />
     <Folder Include="Task_4\Embed\" />
+    <Folder Include="Task_5\webapp\" />
+    <Folder Include="Task_5\webapp\webapp\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Task_1\Task_1.py">
@@ -53,6 +56,12 @@
     <Compile Include="Task_4\Function\setup.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Task_5\webapp\manage.py" />
+    <Compile Include="Task_5\webapp\webapp\asgi.py" />
+    <Compile Include="Task_5\webapp\webapp\settings.py" />
+    <Compile Include="Task_5\webapp\webapp\urls.py" />
+    <Compile Include="Task_5\webapp\webapp\wsgi.py" />
+    <Compile Include="Task_5\webapp\webapp\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Task_2\restaurants.json" />
