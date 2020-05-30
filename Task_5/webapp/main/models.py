@@ -20,5 +20,28 @@ class Form(models.Model):
     responsible_member = models.CharField(max_length=100)
 
     #redirect url
-    #def get_absolute_url(self):
-    #    return reverse('form-details', kwargs={'pk': self.pk})
+    def get_absolute_url(self):
+        return reverse('form-details', kwargs={'pk': self.pk})
+
+class FormLine(models.Model):
+    name = models.CharField(max_length=100)
+    quantity = models.IntegerField()
+
+    quantity_type1 = 'VNT'
+    quantity_type2 = 'KOMPL'
+    quantity_types = (
+        (quantity_type1, 'vnt.'),
+        (quantity_type2, 'kompl.')
+    )
+
+    quantity_type = models.CharField(max_length=5, choices=quantity_types, default=quantity_type1)
+    cost = models.FloatField()
+    sum = models.FloatField()
+    description = models.CharField(max_length=100)
+    form = models.ForeignKey(Form, on_delete=models.CASCADE)
+
+    #redirect url
+    def get_absolute_url(self):
+        return reverse('form-details', kwargs={'pk': self.form.pk})
+
+

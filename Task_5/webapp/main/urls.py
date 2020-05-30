@@ -8,7 +8,7 @@ from .views import (
 
 urlpatterns = [
     path('', ListForms.as_view(), name='home'),
-    path('form/<int:pk>/', FormDetails.as_view(), name='form-detail'),
+    path('form/<int:pk>/', FormDetails.as_view(), name='form-details'),
     path('form/create/', CreateForm.as_view(), name='form-create'),
     #path('form/<int:pk>/update/', FormUpdateView.as_view(), name='form-update'),
     #path('form/<int:pk>/vat/new/', VatCreateView.as_view(), name='vat-create'),

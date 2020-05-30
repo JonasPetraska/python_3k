@@ -1,20 +1,20 @@
 {% extends "main/base.html" %}
 {% block content %}
-<article class="media content-section">
-    <div class="media-body">
-        <div class="article-metadata">
-            Created by: <a class="mr-2" href="#">{{ object.main_member }}</a>
-            <small class="text-muted">{{ object.approved_date }}</small>
+    <article class="media content-section">
+        <div class="media-body">
+            <div class="article-metadata">
+                Created by: <a class="mr-2" href="#">{{ object.main_member }}</a>
+                <small class="text-muted">{{ object.approved_date }}</small>
+            </div>
+            <h2 class="article-title">Invoice number: {{ object.invoice_series }}{{ object.invoice_number }}</h2>
+            <div class="article-content">
+                <p class="description"><b>Company: </b>{{ object.company_title }}</p>
+                <p class="description"><b>Date approved: </b>{{object.approved_date}}</p>
+                <p class="description"><b>Date posted: </b>{{object.act_date}}</p>
+                <p class="description"><b>Location: </b>{{object.location}}</p>
+                <p class="description"><b>Seller name: </b>{{object.creditor_name}}</p>
+                <p class="description"><b>Responsible worker: </b>{{object.responsible_member}}</p>
+            </div>
         </div>
-        <h2 class="article-title">Invoice number: {{ object.invoice_series }}{{ object.invoice_number }}</h2>
-        <div class="article-content">
-            <p class="description"><b>Company: </b>{{ object.company_title }}</p>
-            <p class="description"><b>Date approved: </b>{{object.approved_date}}</p>
-            <p class="description"><b>Date posted: </b>{{object.act_date}}</p>
-            <p class="description"><b>Location: </b>{{object.location}}</p>
-            <p class="description"><b>Seller name: </b>{{object.creditor_name}}</p>
-            <p class="description"><b>Responsible worker: </b>{{object.responsible_member}}</p>
-        </div>
-    </div>
-</article>
+    </article>
 {% endblock content %}

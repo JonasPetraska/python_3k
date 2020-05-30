@@ -14,7 +14,7 @@
             {% if forms %}
                 {% for form in forms %}
                 <tr>
-                    <td><a href="{% url 'form-detail' form.id %}">{{ form.invoice_series }}{{ form.invoice_number }}</a></td>
+                    <td><a href="{% url 'form-details' form.id %}">{{ form.invoice_series }}{{ form.invoice_number }}</a></td>
                     <td>{{ form.act_date }}</td>
                     <td>{{ form.company_title }}</td>
                     <td>{{ form.main_member }}</td>
