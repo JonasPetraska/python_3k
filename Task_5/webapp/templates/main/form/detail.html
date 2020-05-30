@@ -8,12 +8,12 @@
         </div>
         <h2 class="article-title">Invoice number: {{ object.invoice_series }}{{ object.invoice_number }}</h2>
         <div class="article-content">
-            <p><b>Company: </b>{{ object.company_title }}</p>
-            <p><b>Date approved: </b>{{object.approved_date}}</p>
-            <p><b>Date posted: </b>{{object.act_date}}</p>
-            <p><b>Location: </b>{{object.location}}</p>
-            <p><b>Seller name: </b>{{object.creditor_name}}</p>
-            <p><b>Responsible worker: </b>{{object.responsible_member}}</p>
+            <p class="description"><b>Company: </b>{{ object.company_title }}</p>
+            <p class="description"><b>Date approved: </b>{{object.approved_date}}</p>
+            <p class="description"><b>Date posted: </b>{{object.act_date}}</p>
+            <p class="description"><b>Location: </b>{{object.location}}</p>
+            <p class="description"><b>Seller name: </b>{{object.creditor_name}}</p>
+            <p class="description"><b>Responsible worker: </b>{{object.responsible_member}}</p>
         </div>
     </div>
 </article>

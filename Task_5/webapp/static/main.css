@@ -36,6 +36,19 @@ ul {
     margin-bottom: 20px;
 }
 
-.article-content {
-    white-space: pre-line;
+table {
+    border: 1px solid black;
+}
+
+table tr {
+    border: 1px solid black;
+}
+
+table td, th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.description {
+    margin-bottom: 0;
 }
