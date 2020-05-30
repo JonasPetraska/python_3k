@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,49 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
 
+    <style>
+        .btn-group-xs > .btn, .btn-xs {
+            padding: .5rem .4rem;
+            font-size: .875rem;
+            line-height: .5;
+            border-radius: .2rem;
+        }
+    </style>
 
     {% if title %}
-    <title>Python practice, finance - {{ title }}</title>
+    <title>Python - {{ title }}</title>
     {% else %}
-    <title>Python practice, finance</title>
+    <title>Python</title>
     {% endif %}
 </head>
-<style>
-    .btn-group-xs > .btn, .btn-xs {
-        padding: .5rem .4rem;
-        font-size: .875rem;
-        line-height: .5;
-        border-radius: .2rem;
-    }
-</style>
 <body>
     <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
             <div class="container">
-                <a class="navbar-brand mr-4" href="{% url 'finance-home' %}">Django Finance</a>
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
-                    <div class="navbar-nav mr-auto">
-                        {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'form-create' %}">New form</a>
-                        <a class="nav-item nav-link" href="{% url 'finance-home' %}">Existing forms</a>
-                        {% endif %}
-                    </div>
-                    <!-- Navbar Right Side -->
-                    <div class="navbar-nav">
-                        {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-                        {% else %}
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
-                        {% endif %}
-                    </div>
+                   
                 </div>
             </div>
         </nav>

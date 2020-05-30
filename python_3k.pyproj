@@ -34,10 +34,11 @@
     <Folder Include="Task_5\webapp\" />
     <Folder Include="Task_5\webapp\main\" />
     <Folder Include="Task_5\webapp\main\migrations\" />
-    <Folder Include="Task_5\webapp\main\templates\" />
+    <Folder Include="Task_5\webapp\templates\" />
+    <Folder Include="Task_5\webapp\templates\main\" />
+    <Folder Include="Task_5\webapp\templates\users\" />
     <Folder Include="Task_5\webapp\users\" />
     <Folder Include="Task_5\webapp\users\migrations\" />
-    <Folder Include="Task_5\webapp\users\templates\" />
     <Folder Include="Task_5\webapp\webapp\" />
   </ItemGroup>
   <ItemGroup>
@@ -98,10 +99,13 @@
     <Content Include="Task_4\Function\IsPrime.c">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Task_5\webapp\main\templates\base.html">
+    <Content Include="Task_5\webapp\templates\main\base.html">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Task_5\webapp\users\templates\register.html">
+    <Content Include="Task_5\webapp\templates\users\login.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Task_5\webapp\templates\users\register.html">
       <SubType>Code</SubType>
     </Content>
   </ItemGroup>
