@@ -43,3 +43,14 @@ class ListForms(LoginRequiredMixin, ListView):
         context = super(ListForms, self).get_context_data(**kwargs)
         context['forms'] = Form.objects.filter(main_member=self.request.user)
         return context
+
+class CreateFormLine(LoginRequiredMixin, CreateView):
+    model = FormLine
+    template_name = 'main/form/line/create.html'
+    fields = ['name', 'description', 'quantity', 'quantity_type', 'sum']
+
+    #set form reference and calculate cost by sum/quantity without rounding
+    def form_valid(self, form):
+        form.instance.form = Form.objects.get(pk=self.kwargs['pk'])
+        form.instance.cost = form.instance.sum/form.instance.quantity
+        return super().form_valid(form)

@@ -38,6 +38,7 @@
     <Folder Include="Task_5\webapp\templates\" />
     <Folder Include="Task_5\webapp\templates\main\" />
     <Folder Include="Task_5\webapp\templates\main\form\" />
+    <Folder Include="Task_5\webapp\templates\main\form\line\" />
     <Folder Include="Task_5\webapp\templates\users\" />
     <Folder Include="Task_5\webapp\users\" />
     <Folder Include="Task_5\webapp\users\migrations\" />
@@ -117,6 +118,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Task_5\webapp\templates\main\form\detail.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Task_5\webapp\templates\main\form\line\create.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Task_5\webapp\templates\main\home.html">
