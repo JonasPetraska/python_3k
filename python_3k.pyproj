@@ -34,6 +34,7 @@
     <Folder Include="Task_5\webapp\" />
     <Folder Include="Task_5\webapp\main\" />
     <Folder Include="Task_5\webapp\main\migrations\" />
+    <Folder Include="Task_5\webapp\static\" />
     <Folder Include="Task_5\webapp\templates\" />
     <Folder Include="Task_5\webapp\templates\main\" />
     <Folder Include="Task_5\webapp\templates\users\" />
@@ -73,6 +74,9 @@
     <Compile Include="Task_5\webapp\manage.py" />
     <Compile Include="Task_5\webapp\users\admin.py" />
     <Compile Include="Task_5\webapp\users\apps.py" />
+    <Compile Include="Task_5\webapp\users\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Task_5\webapp\users\migrations\__init__.py" />
     <Compile Include="Task_5\webapp\users\models.py" />
     <Compile Include="Task_5\webapp\users\tests.py" />
@@ -99,10 +103,19 @@
     <Content Include="Task_4\Function\IsPrime.c">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Task_5\webapp\static\main.css">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Task_5\webapp\templates\main\base.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Task_5\webapp\templates\users\login.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Task_5\webapp\templates\users\logout.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Task_5\webapp\templates\users\profile.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Task_5\webapp\templates\users\register.html">
