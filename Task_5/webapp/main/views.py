@@ -41,6 +41,10 @@ class FormDetails(LoginRequiredMixin, DetailView):
         
         #get lines
         context['lines'] = form.formline_set.all()
+        total = 0;
+        for line in form.formline_set.all():
+            total = total + line.sum;
+        context['line_total'] = total;
 
         return context
 

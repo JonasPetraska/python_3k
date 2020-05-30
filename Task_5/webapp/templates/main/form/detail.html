@@ -46,6 +46,14 @@
                         </tr>
                     {% endif %}
                 </tbody>
+                {% if lines %}
+                    <tfoot>
+                        <tr>
+                            <td colspan="4"><b>Total:</b></td>
+                            <td colspan="2"><b>{{ line_total }}</b></td>
+                        </tr>
+                    </tfoot>
+                {% endif %}
             </table>
         </div>
     </article>
