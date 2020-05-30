@@ -14,6 +14,7 @@
                 <p class="description"><b>Location: </b>{{object.location}}</p>
                 <p class="description"><b>Seller name: </b>{{object.creditor_name}}</p>
                 <p class="description"><b>Responsible worker: </b>{{object.responsible_member}}</p>
+                <p class="description"><a class="btn btn-primary btn-xs" href="{% url 'form-edit' object.id %}">Edit</a></p>
                 <p class="description"><a class="btn btn-primary btn-xs" href="{% url 'line-create' object.id %}">Add new line</a></p>
             </div>
             <table>
