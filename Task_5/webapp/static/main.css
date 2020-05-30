@@ -35,3 +35,7 @@ ul {
     border-radius: 3px;
     margin-bottom: 20px;
 }
+
+.article-content {
+    white-space: pre-line;
+}

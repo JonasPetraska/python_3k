@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+{% block content %}
+    {% if forms %}
+    <h2>Forms: </h2>
+        {% for form in forms %}
+            <article class="media content-section">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <a class="mr-2" href="#">{{ form.main_member }}</a>
+                        <small class="text-muted">{{ form.act_date }}</small>
+                    </div>
+                    <h2><a class="article-title" href="{% url 'form-detail' form.id %}">{{ form.invoice_series }}{{ form.invoice_number }}</a></h2>
+                    <p class="article-content">Company: {{ form.company_title }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>No forms created yet</p>
+    {% endif %}
+{% endblock content %}

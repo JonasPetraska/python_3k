@@ -37,6 +37,7 @@
     <Folder Include="Task_5\webapp\static\" />
     <Folder Include="Task_5\webapp\templates\" />
     <Folder Include="Task_5\webapp\templates\main\" />
+    <Folder Include="Task_5\webapp\templates\main\form\" />
     <Folder Include="Task_5\webapp\templates\users\" />
     <Folder Include="Task_5\webapp\users\" />
     <Folder Include="Task_5\webapp\users\migrations\" />
@@ -69,6 +70,9 @@
     <Compile Include="Task_5\webapp\main\migrations\__init__.py" />
     <Compile Include="Task_5\webapp\main\models.py" />
     <Compile Include="Task_5\webapp\main\tests.py" />
+    <Compile Include="Task_5\webapp\main\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Task_5\webapp\main\views.py" />
     <Compile Include="Task_5\webapp\main\__init__.py" />
     <Compile Include="Task_5\webapp\manage.py" />
@@ -107,6 +111,15 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Task_5\webapp\templates\main\base.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Task_5\webapp\templates\main\form\create.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Task_5\webapp\templates\main\form\detail.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Task_5\webapp\templates\main\home.html">
       <SubType>Code</SubType>
     </Content>
     <Content Include="Task_5\webapp\templates\users\login.html">

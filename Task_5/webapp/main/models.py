@@ -7,14 +7,18 @@ class Form(models.Model):
     act_nr = models.CharField(max_length=100)
     act_date = models.DateTimeField(auto_now_add=True, blank=True)
     approved_date = models.DateTimeField(auto_now_add=True, blank=True)
-    main_member = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commissioner', blank=True)
-    member1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commissioner1')
-    member1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commissioner2', blank=True)
-    member1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commissioner3', blank=True)
-    member1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='commissioner4', blank=True)
+    main_member = models.ForeignKey(User, on_delete=models.CASCADE, related_name='main_member', blank=True)
+    member1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='member1')
+    member2 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='member2', blank=True, null=True)
+    member3 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='member3', blank=True, null=True)
+    member4 = models.ForeignKey(User, on_delete=models.CASCADE, related_name='member4', blank=True, null=True)
     location = models.CharField(max_length=100)
     creditor_name = models.CharField(max_length=100)
     invoice_series = models.CharField(max_length=10)
     invoice_number = models.CharField(max_length=100)
     invoice_date = models.DateTimeField(auto_now_add=True, blank=True)
     responsible_member = models.CharField(max_length=100)
+
+    #redirect url
+    #def get_absolute_url(self):
+    #    return reverse('form-details', kwargs={'pk': self.pk})
