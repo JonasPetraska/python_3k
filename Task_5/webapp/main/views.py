@@ -26,6 +26,10 @@ class FormDetails(DetailView):
     def get_context_data(self, **kwargs):
         context = super(FormDetails, self).get_context_data(**kwargs)
         form = Form.objects.get(pk=self.kwargs['pk'])
+        
+        #get lines
+        context['lines'] = form.formline_set.all()
+
         return context
 
 class ListForms(ListView):

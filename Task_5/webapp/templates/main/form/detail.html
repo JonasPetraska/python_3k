@@ -15,6 +15,36 @@
                 <p class="description"><b>Seller name: </b>{{object.creditor_name}}</p>
                 <p class="description"><b>Responsible worker: </b>{{object.responsible_member}}</p>
             </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Cost</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if lines %}
+                        {% for line in lines %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ line.name }}</td>
+                            <td>{{ line.quantity }} {{line.quantity_type}}</td>
+                            <td>{{ line.cost }}</td>
+                            <td>{{ line.sum }}</td>
+                            <td>{{ line.description }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="6">No lines created yet</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
         </div>
     </article>
 {% endblock content %}
