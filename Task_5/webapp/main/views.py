@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, DetailView
 from .models import Form
 
@@ -20,7 +21,7 @@ class CreateForm(CreateView):
         form.instance.main_member = self.request.user
         return super().form_valid(form)
 
-class FormDetails(DetailView):
+class FormDetails(LoginRequiredMixin, DetailView):
     model = Form
     template_name = "main/form/detail.html"
     def get_context_data(self, **kwargs):
@@ -32,7 +33,7 @@ class FormDetails(DetailView):
 
         return context
 
-class ListForms(ListView):
+class ListForms(LoginRequiredMixin, ListView):
     model = Form
     template_name = 'main/home.html'
     context_object_name = 'forms'
