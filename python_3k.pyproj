@@ -126,6 +126,9 @@
     <Content Include="Task_5\webapp\templates\main\form\line\create.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Task_5\webapp\templates\main\form\pdf.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Task_5\webapp\templates\main\home.html">
       <SubType>Code</SubType>
     </Content>

@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Invoice {{invoice_series}}{{invoice_number}}</title>
+        <style type="text/css">
+            /* PDF template styles */
+            body {
+                font-weight: 200;
+                font-size: 14px;
+                font-family: serif;
+                margin: 50px;
+            }
+
+            .container{
+                display: block;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .pdf-preheader{
+                margin-right: 150px;
+                text-align: right;
+            }
+
+            .pdf-header {
+                font-size: 15px;
+                font-weight: bold;
+                text-align: center;
+                color: #000;
+            }
+
+            .title {
+                padding: 10px 20px 0px 20px;
+            }
+
+            table{
+                border-collapse: collapse;
+            }
+
+            table td, th {
+                border: 1px solid black;
+                padding: 10px;
+            }
+
+            .approve-title{
+                font-weight: 600;
+            }
+
+            .right-float{
+                float: right;
+            }
+
+            .text-right-float{
+                text-align: right;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="pdf-header-section">
+                <div class="pdf-preheader">
+                    <p>Patvirtinta {{company_title}} direktorius</p>
+                    <p>{{act_date}} įsakymu Nr. {{act_nr}}</p>
+                    <br/>
+                    <p class="approve-title">TVIRTINU:</p>
+                    <p>{{company_title}} direktorius</p>
+                    <p>{{approved_date}}</p>
+                </div>
+                <div class="pdf-header">
+                    <p class="title">{{company_title}}</p>
+                    <p class="title">MATERIALINIŲ VERTYBIŲ NURAŠYMO AKTAS</p>
+                </div>
+            </div>
+            <div class="pdf-details">
+                <p class="pdf-details-text">
+                    Komisija patvirtinta {{act_date}} įsakymu  Nr. {{act_nr}} "Dėl komisijos sudarymo materialinių vertybių nurašymui", komisijos pirmininkas {{main_member}}, {{member1}}, {{member2}}, {{member3}}, {{member4}} nustatė, kad per {{approved_date}} {{location}} sunaudojo:
+                </p>
+                <table class="pdf-table">
+                    <thead>
+                        <tr>
+                            <th>Eil.Nr</th>
+                            <th>Materialinės vertybės pavadinimas</th>
+                            <th>Mato vnt.</th>
+                            <th>Kiekis</th>
+                            <td>Kaina</td>
+                            <th>Suma su PVM EUR</th>
+                            <th>Panaudojimo tikslas ir vieta</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if lines %}
+                        {% for line in lines %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ line.name }}</td>
+                            <td>{{ line.quantity_type }}</td>
+                            <td>{{ line.quantity }}</td>
+                            <td>{{ line.cost }}</td>
+                            <td>{{ line.sum }}</td>
+                            <td>{{ line.description }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="7">Nėra eilučių</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            <td style="text-align: right;">Iš viso:</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                {% if lines %}
+                                {{line_total}}
+                                {% else %}
+                                -
+                                {% endif %}
+                            </td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="pdf-summary">
+                <p>Pagal pirkimo dokumentus:</p>
+                <p>{{creditor_name}} PVM s.f. {{invoice_series}} Nr. {{invoice_number}}, {{invoice_date}}</p>
+                <p>Komisijos pirmininkas <span class="right-float">{{main_member}}</span></p>
+                <p>Nariai <span class="right-float">{{member1}}</span></p>
+                <p class="text-right-float">{{member2}}</p>
+                <p class="text-right-float">{{member3}}</p>
+                <p class="text-right-float">{{member4}}</p>
+                <p>Mat. atsakingas <span class="right-float">{{responsible_member}}</span></p>
+            </div>
+        </div>
+    </body>
+</html>
