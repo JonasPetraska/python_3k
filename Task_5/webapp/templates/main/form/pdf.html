@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <style type="text/css">
             /* PDF template styles */
+
             body {
                 font-weight: 200;
                 font-size: 14px;
@@ -35,7 +36,14 @@
                 padding: 10px 20px 0px 20px;
             }
 
-            table td, th {
+            .pdf-table td, th {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .pdf-table td, th {
                 border: 1px solid black;
             }
 
@@ -43,14 +51,12 @@
                 font-weight: 600;
             }
 
-            .right-float{
-                float: right;
-            }
-
-            .text-right-float{
-                text-align: right;
+            .bottom-border {
+                border-bottom: 1px solid black;
+                margin: 0;
             }
             
+
         </style>
     </head>
     <body>
@@ -70,15 +76,15 @@
             </div>
             <div class="pdf-details">
                 <p class="pdf-details-text">
-                    Komisija patvirtinta {{act_date}} įsakymu  Nr. {{act_nr}} "Dėl komisijos sudarymo materialinių vertybių nurašymui", komisijos pirmininkas {{main_member}}, {{member1}}, {{member2}}, {{member3}}, {{member4}} nustatė, kad per {{approved_date}} {{location}} sunaudojo:
+                    Komisija patvirtinta {{act_date}} įsakymu  Nr. {{act_nr}} "Dėl komisijos sudarymo materialinių vertybių nurašymui", komisijos pirmininkas {{main_member}} {{member1}} {{member2}} {{member3}} {{member4}} nustatė, kad per {{approved_date}} {{location}} sunaudojo:
                 </p>
                 <table class="pdf-table">
                     <thead>
                         <tr>
-                            <th>Eil.Nr</th>
+                            <th style="width: 30px;">Eil. Nr</th>
                             <th>Materialinės vertybės pavadinimas</th>
                             <th>Mato vnt.</th>
-                            <th>Kiekis</th>
+                            <th style="width: 50px;">Kiekis</th>
                             <th>Kaina</th>
                             <th>Suma su PVM EUR</th>
                             <th>Panaudojimo tikslas ir vieta</th>
@@ -86,38 +92,38 @@
                     </thead>
                     <tbody>
                         {% if lines %}
-                        {% for line in lines %}
-                        <tr>
-                            <td>{{ forloop.counter }}</td>
-                            <td>{{ line.name }}</td>
-                            <td>{{ line.quantity_type }}</td>
-                            <td>{{ line.quantity }}</td>
-                            <td>{{ line.cost }}</td>
-                            <td>{{ line.sum }}</td>
-                            <td>{{ line.description }}</td>
-                        </tr>
-                        {% endfor %}
+                            {% for line in lines %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ line.name }}</td>
+                                    <td>{{ line.quantity_type }}</td>
+                                    <td>{{ line.quantity }}</td>
+                                    <td>{{ line.cost }}</td>
+                                    <td>{{ line.sum }}</td>
+                                    <td>{{ line.description }}</td>
+                                </tr>
+                            {% endfor %}
                         {% else %}
-                        <tr>
-                            <td colspan="7">Nėra eilučių</td>
-                        </tr>
+                            <tr>
+                                <td colspan="7">Nėra eilučių</td>
+                            </tr>
                         {% endif %}
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td></td>
-                            <td style="text-align: right;">Iš viso:</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
+                            <th></th>
+                            <th style="text-align: right;">Iš viso:</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th>
                                 {% if lines %}
-                                {{line_total}}
+                                    {{line_total}}
                                 {% else %}
-                                -
+                                    -
                                 {% endif %}
-                            </td>
-                            <td></td>
+                            </th>
+                            <th></th>
                         </tr>
                     </tfoot>
                 </table>
@@ -125,12 +131,52 @@
             <div class="pdf-summary">
                 <p>Pagal pirkimo dokumentus:</p>
                 <p>{{creditor_name}} PVM s.f. {{invoice_series}} Nr. {{invoice_number}}, {{invoice_date}}</p>
-                <p>Komisijos pirmininkas <span class="right-float">{{main_member}}</span></p>
-                <p>Nariai <span class="right-float">{{member1}}</span></p>
-                <p class="text-right-float">{{member2}}</p>
-                <p class="text-right-float">{{member3}}</p>
-                <p class="text-right-float">{{member4}}</p>
-                <p>Mat. atsakingas <span class="right-float">{{responsible_member}}</span></p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Komisijos pirmininkas</td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td>{{main_member}}</td>
+                        </tr>
+                        <tr>
+                            <td>Nariai</td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td>{{member1}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td>{{member2}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td>{{member3}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td>{{member4}}</td>
+                        </tr>
+                        <tr>
+                            <td>Mat. atsakingas</td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td class="bottom-border"></td>
+                            <td>{{responsible_member}}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </body>

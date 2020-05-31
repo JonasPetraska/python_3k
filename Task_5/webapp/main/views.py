@@ -14,7 +14,7 @@ from xhtml2pdf import pisa
 def home(request):
     forms = Form.objects.filter(main_member=request.user)
     return render(request, 'main/home.html', {'forms': forms});
-
+@login_required
 def form_as_pdf(request, *args, **kwargs):
     data = get_form_pdf_data(kwargs)
     pdf = render_to_pdf('main/form/pdf.html', data)
