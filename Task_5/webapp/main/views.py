@@ -4,8 +4,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from .models import Form, FormLine
 from django.template.loader import get_template
-from io import BytesIO
+from io import BytesIO, StringIO
 from django.http import HttpResponse
+from xhtml2pdf import pisa
 
 # Create your views here.
 
@@ -101,9 +102,9 @@ def get_form_pdf_data(kwargs):
 
 def render_to_pdf(template_src, context_dict={}):
     template = get_template(template_src)
-    html  = template.render(context_dict)
+    html = template.render(context_dict)
     result = BytesIO()
-    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result, encoding='UTF-8')
     if not pdf.err:
         return HttpResponse(result.getvalue(), content_type='application/pdf')
     return None

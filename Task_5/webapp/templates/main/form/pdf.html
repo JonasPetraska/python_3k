@@ -2,13 +2,14 @@
 <html>
     <head>
         <title>Invoice {{invoice_series}}{{invoice_number}}</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <style type="text/css">
             /* PDF template styles */
             body {
                 font-weight: 200;
                 font-size: 14px;
-                font-family: serif;
-                margin: 50px;
+                font-family: 'Times New Roman';
             }
 
             .container{
@@ -18,9 +19,9 @@
                 margin-right: auto;
             }
 
-            .pdf-preheader{
-                margin-right: 150px;
+            .pdf-preheader {
                 text-align: right;
+                margin-right: 150px;
             }
 
             .pdf-header {
@@ -34,13 +35,8 @@
                 padding: 10px 20px 0px 20px;
             }
 
-            table{
-                border-collapse: collapse;
-            }
-
             table td, th {
                 border: 1px solid black;
-                padding: 10px;
             }
 
             .approve-title{
@@ -63,7 +59,6 @@
                 <div class="pdf-preheader">
                     <p>Patvirtinta {{company_title}} direktorius</p>
                     <p>{{act_date}} įsakymu Nr. {{act_nr}}</p>
-                    <br/>
                     <p class="approve-title">TVIRTINU:</p>
                     <p>{{company_title}} direktorius</p>
                     <p>{{approved_date}}</p>
@@ -84,7 +79,7 @@
                             <th>Materialinės vertybės pavadinimas</th>
                             <th>Mato vnt.</th>
                             <th>Kiekis</th>
-                            <td>Kaina</td>
+                            <th>Kaina</th>
                             <th>Suma su PVM EUR</th>
                             <th>Panaudojimo tikslas ir vieta</th>
                         </tr>
