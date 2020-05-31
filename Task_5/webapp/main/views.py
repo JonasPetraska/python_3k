@@ -15,8 +15,9 @@ def home(request):
     return render(request, 'main/home.html', {'forms': forms});
 
 def form_as_pdf(request, *args, **kwargs):
-    template = get_template('pdf.html')
     data = get_form_pdf_data(kwargs)
+    pdf = render_to_pdf('main/form/pdf.html', data)
+    return HttpResponse(pdf, content_type='application/pdf')
 
 class CreateForm(LoginRequiredMixin, CreateView):
     model = Form
@@ -83,9 +84,15 @@ def get_form_pdf_data(kwargs):
     data_tosend['lines'] = data.formline_set.all()
     data_tosend['main_member'] = data.main_member.username if not data.main_member.first_name else data.main_member.first_name + ' ' + data.main_member.last_name
     data_tosend['member1'] = data.member1.username if not data.member1.first_name else data.member1.first_name + ' ' + data.member1.last_name
-    data_tosend['member2'] = data.member2.username if not data.member2.first_name else data.member2.first_name + ' ' + data.member2.last_name
-    data_tosend['member3'] = data.member3.username if not data.member3.first_name else data.member3.first_name + ' ' + data.member3.last_name
-    data_tosend['member4'] = data.member4.username if not data.member4.first_name else data.member4.first_name + ' ' + data.member4.last_name
+    if(data.member2):
+        data_tosend['member2'] = data.member2.username if not data.member2.first_name else data.member2.first_name + ' ' + data.member2.last_name
+
+    if(data.member3):
+        data_tosend['member3'] = data.member3.username if not data.member3.first_name else data.member3.first_name + ' ' + data.member3.last_name
+    
+    if(data.member4):
+        data_tosend['member4'] = data.member4.username if not data.member4.first_name else data.member4.first_name + ' ' + data.member4.last_name
+    
     total = 0
     for line in data.formline_set.all():
         total = total + line.sum

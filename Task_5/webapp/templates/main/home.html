@@ -8,6 +8,7 @@
                 <th>Invoice date</th>
                 <th>Company</th>
                 <th>Commissionier</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@
                     <td>{{ form.act_date }}</td>
                     <td>{{ form.company_title }}</td>
                     <td>{{ form.main_member }}</td>
+                    <td><a class="btn btn-primary" href="{% url 'form-pdf-view' form.id %}">View as pdf</a></td>
                 </tr>
                 {% endfor %}
             {% else %}
